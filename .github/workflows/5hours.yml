@@ -23,8 +23,8 @@ jobs:
 
       - name: Commit the new file
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "thomaslillo"
+          git config --global user.email "thomas.j.lillo@gmail.com"
           git add newfile.txt
           git commit -m "Add newfile.txt created by GitHub Actions"
           git push
