@@ -8,10 +8,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
 
     steps:
       # Reference the major version of a release
       - uses: actions/checkout@v4
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create important file
         run: date +%s > important.txt
       - name: Commit report
@@ -21,5 +25,4 @@ jobs:
           git add .
           git commit -am "Automated report"
           git push
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
