@@ -1,3 +1,2 @@
 # honeypot
-look how productive I am, say hi!
- \n hi 
+look how productive I am, say hi:
