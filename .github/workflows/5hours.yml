@@ -10,20 +10,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Reference the major version of a release
-    - uses: actions/checkout@v4
+      # Reference the major version of a release
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false # This is important to avoid using the default token
 
-    - name: Set up git user
-      run: |
-        git config user.name ${{ secrets.GIT_USER }}
-        git config user.email ${{ secrets.GIT_EMAIL }}
+      - name: Set up git user
+        run: |
+          git config user.name ${{ secrets.GIT_USER }}
+          git config user.email ${{ secrets.GIT_EMAIL }}
 
-    - name: Run a one-line script
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        echo " \n hi " >> README.md
-        git add README.md
-        git commit -m "Always green!"
-        git push
+      - name: Authenticate with GitHub token
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
 
+      - name: Run a one-line script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo " \n hi " >> README.md
+          git add README.md
+          git commit -m "Always green!"
+          git push
