@@ -33,6 +33,3 @@ jobs:
           echo " hi there " >> README.md
           git add README.md
           git commit -m "Always green!"
-          git push
-          git add README.md
-          git commit -m "Always green!"
