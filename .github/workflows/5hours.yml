@@ -6,24 +6,26 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  create_commit_file:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
 
     steps:
-      # Reference the major version of a release
-      - uses: actions/checkout@v4
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Create important file
-        run: date +%s > important.txt      
-      - name: Commit report
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up GitHub CLI
+        uses: actions/setup-gh-cli@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create a new file
+        run: echo "This is a new file created by GitHub Actions" > newfile.txt
+
+      - name: Commit the new file
         run: |
-          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git
-          git config --global user.name 'thomaslillo'
-          git config --global user.email 'thomas.j.lillo@gmail.com'
-          git add .
-          git commit -am "Automated report"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add newfile.txt
+          git commit -m "Add newfile.txt created by GitHub Actions"
           git push
 
