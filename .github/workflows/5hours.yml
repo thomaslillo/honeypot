@@ -12,11 +12,12 @@ jobs:
     steps:
       # Reference the major version of a release
       - uses: actions/checkout@v4
-      - name: Create report file
-        run: date +%s > report.txt
+      - name: Create important file
+        run: date +%s > important.txt
       - name: Commit report
         run: |
           git config --global user.name 'thomaslillo'
           git config --global user.email 'thomas.j.lillo@gmail.com'
+          git add .
           git commit -am "Automated report"
           git push
