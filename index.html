@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7x24 Grid</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(24, 1fr);
+            grid-template-rows: repeat(7, 1fr);
+            gap: 2px;
+            width: 90%;
+            height: 90%;
+        }
+
+        .grid-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container" id="grid-container"></div>
+    <script>
+        const gridContainer = document.getElementById('grid-container');
+
+        for (let i = 0; i < 7 * 24; i++) {
+            const gridItem = document.createElement('div');
+            gridItem.classList.add('grid-item');
+
+            // Generate a different shade of green
+            const greenValue = Math.floor((i / (7 * 24)) * 255);
+            gridItem.style.backgroundColor = `rgb(0, ${greenValue}, 0)`;
+
+            gridContainer.appendChild(gridItem);
+        }
+    </script>
+</body>
+</html>
