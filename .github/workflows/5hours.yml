@@ -21,3 +21,5 @@ jobs:
           git add .
           git commit -am "Automated report"
           git push
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
