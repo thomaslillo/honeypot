@@ -30,6 +30,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo " hi there " >> README.md
-          git add README.md
+          echo " print('hello world') " >> important_file.py
+          git add important_file.py
           git commit -m "Always green!"
