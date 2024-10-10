@@ -35,3 +35,89 @@ jobs:
           git add important_file.txt
           git commit -m "Always green!"
           git push
+
+      - name: Random Exit 1
+        id: random_check
+        run: |
+          RANDOM_NUMBER=$((1 + RANDOM % 3))
+          echo "Generated number: $RANDOM_NUMBER"
+          if [ $RANDOM_NUMBER -ne 3 ]; then
+            echo "Random number is not 3. Exiting."
+            exit 0
+          fi
+          
+      - name: Run a one-line script 2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo " print('hello world') " >> important_file.txt
+          git add important_file.txt
+          git commit -m "Always green!"
+          git push
+
+      - name: Random Exit 2
+        id: random_check_2
+        run: |
+          RANDOM_NUMBER=$((1 + RANDOM % 3))
+          echo "Generated number: $RANDOM_NUMBER"
+          if [ $RANDOM_NUMBER -ne 3 ]; then
+            echo "Random number is not 3. Exiting."
+            exit 0
+          fi
+
+      - name: Run a one-line script 3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo " print('hello world') " >> important_file.txt
+          git add important_file.txt
+          git commit -m "Always green!"
+          git push
+
+      - name: Random Exit 3
+        id: random_check_3
+        run: |
+          RANDOM_NUMBER=$((1 + RANDOM % 3))
+          echo "Generated number: $RANDOM_NUMBER"
+          if [ $RANDOM_NUMBER -ne 3 ]; then
+            echo "Random number is not 3. Exiting."
+            exit 0
+          fi
+
+      - name: Run a one-line script 4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo " print('hello world') " >> important_file.txt
+          git add important_file.txt
+          git commit -m "Always green!"
+          git push
+
+      - name: Random Exit 4
+        id: random_check_4
+        run: |
+          RANDOM_NUMBER=$((1 + RANDOM % 3))
+          echo "Generated number: $RANDOM_NUMBER"
+          if [ $RANDOM_NUMBER -ne 3 ]; then
+            echo "Random number is not 3. Exiting."
+            exit 0
+          fi
+
+      - name: Run a one-line script 5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo " print('hello world') " >> important_file.txt
+          git add important_file.txt
+          git commit -m "Always green!"
+          git push
+
+      - name: Random Exit 5
+        id: random_check_5
+        run: |
+          RANDOM_NUMBER=$((1 + RANDOM % 3))
+          echo "Generated number: $RANDOM_NUMBER"
+          if [ $RANDOM_NUMBER -ne 3 ]; then
+            echo "Random number is not 3. Exiting."
+            exit 0
+          fi
