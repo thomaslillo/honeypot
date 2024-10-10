@@ -1,4 +1,4 @@
-name: CI-24-Hour-5
+name: CI-24-Hour-3
 
 on:
   schedule:
@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Generate random number and check if it's 5
+      - name: Generate random number and check if it's 3
         id: random_check
         run: |
-          RANDOM_NUMBER=$((1 + RANDOM % 5))
+          RANDOM_NUMBER=$((1 + RANDOM % 3))
           echo "Generated number: $RANDOM_NUMBER"
-          if [ $RANDOM_NUMBER -ne 5 ]; then
-            echo "Random number is not 5. Exiting."
+          if [ $RANDOM_NUMBER -ne 3 ]; then
+            echo "Random number is not 3. Exiting."
             exit 0
           fi
 
