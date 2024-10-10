@@ -1,24 +1,29 @@
-name: CI-28-Hour
+name: CI-24-Hour-5
 
 on:
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-        
+      - name: Generate random number and check if it's 5
+        id: random_check
+        run: |
+          RANDOM_NUMBER=$((1 + RANDOM % 5))
+          echo "Generated number: $RANDOM_NUMBER"
+          if [ $RANDOM_NUMBER -ne 5 ]; then
+            echo "Random number is not 5. Exiting."
+            exit 0
+          fi
+
       # Reference the major version of a release
       - uses: actions/checkout@v4
         with:
           persist-credentials: false # This is important to avoid using the default token
-
-      - name: Wait for 4 hours
-        run: sleep $((4 * 3600)) # Sleep for 4 hours (4 hours * 3600 seconds/hour)
 
       - name: Set up git user
         run: |
