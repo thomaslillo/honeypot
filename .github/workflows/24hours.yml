@@ -21,9 +21,9 @@ jobs:
             exit 0
           fi
 
-          RANDOM_NUMBER=$((RANDOM % 3))
+          RANDOM_NUMBER=$((RANDOM % 3 + 1))
           echo "Weekend detected. Generated number: $RANDOM_NUMBER"
-          if [ "$RANDOM_NUMBER" -eq 0 ]; then
+          if [ "$RANDOM_NUMBER" -eq 1 ]; then
             echo "Weekend commit chance hit. Proceeding."
             echo "should_commit=true" >> "$GITHUB_OUTPUT"
           else
