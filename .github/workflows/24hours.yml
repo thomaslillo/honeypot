@@ -108,7 +108,7 @@ jobs:
           git commit -m "Always green!"
           git push
 
-      - name: Run a one-line script 6
+      - name: Run a one-line script 5
         if: steps.schedule_gate.outputs.should_commit == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -124,7 +124,7 @@ jobs:
           git commit -m "Always green!"
           git push
 
-      - name: Run a one-line script 5
+      - name: Run a one-line script 6
         if: steps.schedule_gate.outputs.should_commit == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
